@@ -2,7 +2,6 @@ import express, { Application, json, urlencoded } from 'express';
 import dotenv from 'dotenv';
 import helmet from 'helmet';
 import cors from 'cors';
-import path from 'path';
 
 dotenv.config();
 
@@ -11,21 +10,13 @@ app.use(cors());
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
-const PORT = process.env.PORT || 3000;
-
-// Have Node serve the files for our built React app
-app.use(express.static(path.resolve(__dirname, '../../frontend/build')));
+const PORT = process.env.PORT || 3001;
 
 app.use(helmet());
 
 // Handle GET requests to /api route
 app.get('/api', (req, res) => {
   res.json({ message: 'Hello from server!' });
-});
-
-// All other GET requests not handled before will return our React app
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../../frontend/build', 'index.html'));
 });
 
 try {
