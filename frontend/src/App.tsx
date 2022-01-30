@@ -1,12 +1,27 @@
 import React from 'react';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import { AboutPage, BlogPage, Main, MySkillsPage, WorkPage } from './components';
+import { lightTheme } from './components/Themes';
+import GlobalStyle from './globalStyles';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <p>🚧 Welcome to Abdiel Vega website 🚧</p>
-    </div>
+    <>
+      <GlobalStyle />
+      <ThemeProvider theme={lightTheme}>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/skills" element={<MySkillsPage />} />
+          <Route path="/work" element={<WorkPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          {/* TODO: ADD status page here */}
+          <Route path="*" element={<BlogPage />} />
+        </Routes>
+      </ThemeProvider>
+    </>
   );
-}
+};
 
 export default App;
