@@ -70,7 +70,7 @@ const Main = () => {
           <TopBarLink to="/skills">
             <h2>Skills</h2>
           </TopBarLink>
-          <TopBarLink to="/blog">
+          <TopBarLink to="/hobby">
             <h2>Hobbies</h2>
           </TopBarLink>
           <TopBarLink to="/work">

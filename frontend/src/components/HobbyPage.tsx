@@ -10,7 +10,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const AboutPage = () => {
+const BlogPage = () => {
   return (
     <Container>
       <h2>Work in progress... 👷🏾‍♂️</h2>
@@ -18,4 +18,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default BlogPage;
