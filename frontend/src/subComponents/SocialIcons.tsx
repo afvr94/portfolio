@@ -23,7 +23,7 @@ const Icons = styled.div`
 const Line = styled.span`
   width: 2px;
   height: 8rem;
-  background-color: ${(props) => props.theme.text};
+  background-color: ${(props) => props.theme.black};
 `;
 
 const SocialIcons = () => {

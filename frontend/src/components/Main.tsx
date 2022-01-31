@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import Intro from './Intro';
 import LogoComponent from '../subComponents/LogoComponent';
 import SocialIcons from '../subComponents/SocialIcons';
 
@@ -65,19 +66,29 @@ const Main = () => {
         <LogoComponent />
         <TopBar>
           <Contact target="_blank" href="mailto:me@abdielvega.com">
-            <h2>Say hi..</h2>
+            <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              Say hi..
+            </motion.h2>
           </Contact>
           <TopBarLink to="/skills">
-            <h2>Skills</h2>
+            <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              Skills
+            </motion.h2>
           </TopBarLink>
           <TopBarLink to="/hobby">
-            <h2>Hobbies</h2>
+            <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              Hobbies
+            </motion.h2>
           </TopBarLink>
           <TopBarLink to="/work">
-            <h2>Work</h2>
+            <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              Work
+            </motion.h2>
           </TopBarLink>
           <TopBarLink to="/about">
-            <h2>About</h2>
+            <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              About
+            </motion.h2>
           </TopBarLink>
         </TopBar>
         <SocialIcons />
@@ -92,6 +103,7 @@ const Main = () => {
           }}
         />
       </Container>
+      <Intro />
     </MainContainer>
   );
 };

@@ -1,14 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { AboutPage, HobbyPage, Main, MySkillsPage, WorkPage } from './components';
-import { lightTheme } from './components/Themes';
+import { theme } from './components/Themes';
 import GlobalStyle from './globalStyles';
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
-      <ThemeProvider theme={lightTheme}>
+      <ThemeProvider theme={theme}>
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/about" element={<AboutPage />} />
