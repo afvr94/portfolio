@@ -1,7 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { AboutPage, HobbyPage, Main, MySkillsPage, WorkPage } from './components';
-import { theme } from './components/Themes';
+import { About, Hobby, Main, Skills, Work } from './pages';
+import { PageUrl } from './constants';
+import { theme } from './themes';
 import GlobalStyle from './globalStyles';
 
 const App = () => {
@@ -10,11 +11,11 @@ const App = () => {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/skills" element={<MySkillsPage />} />
-          <Route path="/work" element={<WorkPage />} />
-          <Route path="/hobby" element={<HobbyPage />} />
+          <Route path={PageUrl.MAIN} element={<Main />} />
+          <Route path={PageUrl.ABOUT} element={<About />} />
+          <Route path={PageUrl.SKILLS} element={<Skills />} />
+          <Route path={PageUrl.WORK} element={<Work />} />
+          <Route path={PageUrl.HOBBY} element={<Hobby />} />
           {/* TODO: ADD status page here */}
           <Route path="*" element={<Main />} />
         </Routes>

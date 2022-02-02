@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { Email, Facebook, Github, LinkedIn } from '../components/svgs';
+import { Email, Facebook, Github, LinkedIn } from './svgs';
+import { SocialUrl } from '../constants';
 
 const Icons = styled.div`
   position: fixed;
@@ -29,17 +30,17 @@ const Line = styled.span`
 const SocialIcons = () => {
   return (
     <Icons>
-      <a href="https://www.linkedin.com/in/afvr94/" target="_blank" rel="noreferrer">
+      <a href={SocialUrl.LINKED_IN} target="_blank" rel="noreferrer">
         <LinkedIn width={25} height={25} fill="currentColor" />
       </a>
-      <a href="https://github.com/afvr94" target="_blank" rel="noreferrer">
+      <a href={SocialUrl.GITHUB} target="_blank" rel="noreferrer">
         <Github width={25} height={25} fill="currentColor" />
       </a>
 
-      <a href="https://www.facebook.com/abdiel.vega.9/" target="_blank" rel="noreferrer">
+      <a href={SocialUrl.FACEBOOK} target="_blank" rel="noreferrer">
         <Facebook width={25} height={25} fill="currentColor" />
       </a>
-      <a href="mailto:me@abdielvega.com" target="_blank" rel="noreferrer">
+      <a href={`mailto:${SocialUrl.EMAIL}`} target="_blank" rel="noreferrer">
         <Email width={25} height={25} fill="currentColor" />
       </a>
       <Line />

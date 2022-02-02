@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import Intro from './Intro';
-import LogoComponent from '../subComponents/LogoComponent';
-import SocialIcons from '../subComponents/SocialIcons';
+import Intro from '../components/Intro';
+import { LogoComponent, SocialIcons } from '../components';
+import { PageUrl, SocialUrl } from '../constants';
 
 const MainContainer = styled.div`
   background: ${(props) => props.theme.body};
@@ -65,27 +65,27 @@ const Main = () => {
       <Container>
         <LogoComponent />
         <TopBar>
-          <Contact target="_blank" href="mailto:me@abdielvega.com">
+          <Contact target="_blank" href={`mailto:${SocialUrl.EMAIL}`}>
             <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               Say hi..
             </motion.h2>
           </Contact>
-          <TopBarLink to="/skills">
+          <TopBarLink to={PageUrl.SKILLS}>
             <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               Skills
             </motion.h2>
           </TopBarLink>
-          <TopBarLink to="/hobby">
+          <TopBarLink to={PageUrl.HOBBY}>
             <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               Hobbies
             </motion.h2>
           </TopBarLink>
-          <TopBarLink to="/work">
+          <TopBarLink to={PageUrl.WORK}>
             <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               Work
             </motion.h2>
           </TopBarLink>
-          <TopBarLink to="/about">
+          <TopBarLink to={PageUrl.ABOUT}>
             <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               About
             </motion.h2>
