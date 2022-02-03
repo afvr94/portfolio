@@ -1,10 +1,10 @@
 type Props = {
   fill: string;
+  width: number;
+  height: number;
 };
 
-const Design = (props: Props) => {
-  const { fill } = props;
-
+const Design = ({ fill, width, height }: Props) => {
   return (
     <svg
       aria-hidden="true"
@@ -13,7 +13,8 @@ const Design = (props: Props) => {
       className="prefix__svg-inline--fa prefix__fa-palette prefix__fa-w-16"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
-      {...props}
+      width={width}
+      height={height}
     >
       <path
         fill={fill}
