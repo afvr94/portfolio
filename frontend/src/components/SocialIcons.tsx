@@ -2,14 +2,13 @@ import styled from 'styled-components';
 import { Email, Facebook, Github, LinkedIn } from './svgs';
 import { SocialUrl } from '../constants';
 
-const Icons = styled.div`
+const Icons = styled.div<{ themeType: Theme }>`
   position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   bottom: 0;
   left: 2rem;
-  // TODO: CHECK THIS
   z-index: 3;
   // Adding margin to only the icons (excluding the line)
   & > *:not(:last-child) {
@@ -17,19 +16,26 @@ const Icons = styled.div`
   }
   // Changing the anchor tags to the original color
   & > a {
-    color: inherit;
+    color: ${(props) => (props.themeType === 'dark' ? props.theme.white : props.theme.black)};
+  }
+  & > span {
+    background-color: ${(props) =>
+      props.themeType === 'dark' ? props.theme.white : props.theme.black};
   }
 `;
 
 const Line = styled.span`
   width: 2px;
   height: 8rem;
-  background-color: ${(props) => props.theme.black};
 `;
 
-const SocialIcons = () => {
+type Props = {
+  theme: Theme;
+};
+
+const SocialIcons = ({ theme }: Props) => {
   return (
-    <Icons>
+    <Icons themeType={theme}>
       <a href={SocialUrl.LINKED_IN} target="_blank" rel="noreferrer">
         <LinkedIn width={25} height={25} fill="currentColor" />
       </a>

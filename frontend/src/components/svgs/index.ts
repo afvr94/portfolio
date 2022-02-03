@@ -1,5 +1,4 @@
 export { default as Anchor } from './Anchor';
-export { default as Design } from './Design';
 export { default as Develop } from './Develop';
 export { default as Facebook } from './Facebook';
 export { default as Github } from './Github';

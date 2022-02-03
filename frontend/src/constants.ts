@@ -10,5 +10,5 @@ export enum PageUrl {
   ABOUT = '/about',
   SKILLS = '/skills',
   WORK = '/work',
-  HOBBY = '/hobby',
+  HOBBIES = '/hobby',
 }

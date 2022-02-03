@@ -1,6 +1,6 @@
 import styled, { ThemeProvider } from 'styled-components';
 import { theme } from '../themes';
-import { Design, Develop } from '../components/svgs';
+import { Develop } from '../components/svgs';
 import { HomeButton, SocialIcons } from '../components';
 import Particle from '../components/Particle';
 
@@ -73,13 +73,13 @@ const Description = styled.div`
   }
 `;
 
-const MySkillsPage = () => {
+const Skills = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container>
         <HomeButton />
-        <SocialIcons />
-        <Particle />
+        <SocialIcons theme="light" />
+        <Particle theme="light" />
         <Box>
           <Title>
             <Develop width={40} height={40} /> Frontend Developer
@@ -111,4 +111,4 @@ const MySkillsPage = () => {
   );
 };
 
-export default MySkillsPage;
+export default Skills;

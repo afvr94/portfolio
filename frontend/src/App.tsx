@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { About, Hobby, Main, Skills, Work } from './pages';
+import { About, Hobbies, Main, Skills, Work } from './pages';
 import { PageUrl } from './constants';
 import { theme } from './themes';
 import GlobalStyle from './globalStyles';
@@ -15,7 +15,7 @@ const App = () => {
           <Route path={PageUrl.ABOUT} element={<About />} />
           <Route path={PageUrl.SKILLS} element={<Skills />} />
           <Route path={PageUrl.WORK} element={<Work />} />
-          <Route path={PageUrl.HOBBY} element={<Hobby />} />
+          <Route path={PageUrl.HOBBIES} element={<Hobbies />} />
           {/* TODO: ADD status page here */}
           <Route path="*" element={<Main />} />
         </Routes>

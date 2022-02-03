@@ -10,7 +10,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const BlogPage = () => {
+const Hobbies = () => {
   return (
     <Container>
       <h2>Work in progress... 👷🏾‍♂️</h2>
@@ -18,4 +18,4 @@ const BlogPage = () => {
   );
 };
 
-export default BlogPage;
+export default Hobbies;

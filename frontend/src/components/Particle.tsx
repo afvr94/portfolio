@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Particles from 'react-tsparticles';
-import { particlesConfig } from '../config';
+import { lightParticleConfig, darkParticleConfig } from '../config';
 
 const Container = styled.div`
   position: absolute;
@@ -10,10 +10,17 @@ const Container = styled.div`
   z-index: 0;
 `;
 
-const Particle = () => {
+type Props = {
+  theme: 'light' | 'dark';
+};
+
+const Particle = ({ theme }: Props) => {
   return (
     <Container>
-      <Particles style={{ position: 'absolute', top: 0 }} params={particlesConfig} />
+      <Particles
+        style={{ position: 'absolute', top: 0 }}
+        params={theme === 'light' ? lightParticleConfig : darkParticleConfig}
+      />
     </Container>
   );
 };

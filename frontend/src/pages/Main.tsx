@@ -51,8 +51,7 @@ const TopBarLink = styled(Link)`
 const DarkDiv = styled(motion.div)`
   position: absolute;
   top: 0;
-  // TODO: ADD TO THEME
-  background-color: #e48826;
+  background-color: ${(props) => props.theme.orange};
   bottom: 0;
   right: 50%;
   z-index: 1;
@@ -75,7 +74,7 @@ const Main = () => {
               Skills
             </motion.h2>
           </TopBarLink>
-          <TopBarLink to={PageUrl.HOBBY}>
+          <TopBarLink to={PageUrl.HOBBIES}>
             <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               Hobbies
             </motion.h2>
@@ -91,7 +90,7 @@ const Main = () => {
             </motion.h2>
           </TopBarLink>
         </TopBar>
-        <SocialIcons />
+        <SocialIcons theme="light" />
         <DarkDiv
           initial={{
             width: 0,
