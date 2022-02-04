@@ -1,21 +1,81 @@
-import styled from 'styled-components';
+import { useEffect, useState } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+import { theme } from '../themes';
+import { HomeButton, SocialIcons, Card } from '../components';
+import { getProjects } from '../api';
+import { Project } from '../types';
 
 const Container = styled.div`
-  background-color: ${(props) => props.theme.body};
+  background-color: ${(props) => props.theme.black};
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: auto;
 `;
 
-const WorkPage = () => {
+const LoadingText = styled.h2`
+  color: ${(props) => props.theme.white};
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Box = styled.div`
+  position: relative;
+  overflow: hidden;
+  margin-top: calc(1rem + 8vw);
+  margin-bottom: calc(1rem + 8vw);
+  margin-left: calc(1rem + 8vw);
+  margin-right: calc(1rem + 2vw);
+  display: flex;
+  justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  color: ${(props) => props.theme.white};
+`;
+
+enum State {
+  'LOADING' = 0,
+  'SUCCESS' = 1,
+  'ERROR' = 2,
+}
+
+const Work = () => {
+  const [state, setState] = useState(State.LOADING);
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  const isLoading = state === State.LOADING;
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await getProjects();
+        setState(State.SUCCESS);
+        setProjects(data);
+      } catch {
+        setState(State.ERROR);
+      }
+    })();
+  }, []);
+
   return (
-    <Container>
-      <h2>Work in progress... 👷🏾‍♂️</h2>
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Container>
+        <HomeButton />
+        <SocialIcons theme="dark" />
+        {isLoading ? (
+          <LoadingText>Loading...</LoadingText>
+        ) : (
+          <Box>
+            {projects.map((project) => (
+              <Card project={project} key={project.id} />
+            ))}
+          </Box>
+        )}
+      </Container>
+    </ThemeProvider>
   );
 };
 
-export default WorkPage;
+export default Work;
