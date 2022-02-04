@@ -2,6 +2,7 @@ import express, { Application, json, urlencoded } from 'express';
 import dotenv from 'dotenv';
 import helmet from 'helmet';
 import cors from 'cors';
+import routes from './routes';
 
 dotenv.config();
 
@@ -18,6 +19,8 @@ app.use(helmet());
 app.get('/api', (req, res) => {
   res.json({ message: 'Hello from server!' });
 });
+
+app.use(routes);
 
 try {
   app.listen(PORT, () => {
