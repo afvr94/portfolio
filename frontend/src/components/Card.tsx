@@ -93,9 +93,11 @@ const Card = ({ project }: Props) => {
         ))}
       </Tags>
       <Footer>
-        <Link href={homepage} target="_black">
-          Visit
-        </Link>
+        {homepage && (
+          <Link href={homepage} target="_black">
+            Visit
+          </Link>
+        )}
         <Git href={url} target="_black">
           <Github width={30} height={30} fill="currentColor" />
         </Git>
