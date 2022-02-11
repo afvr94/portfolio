@@ -8,7 +8,7 @@ const Container = styled(motion.div)`
   top: 50%;
   transform: translate(-50%, -50%);
   width: 65vw;
-  height: 70vh;
+  height: 60vh;
   display: flex;
   background: linear-gradient(
         to right,
@@ -81,7 +81,7 @@ const Intro = () => {
   return (
     <Container
       initial={{ height: 0 }}
-      animate={{ height: '55vh' }}
+      animate={{ height: '60vh' }}
       transition={{ type: 'spring', duration: 2, delay: 1 }}
     >
       <Box>
