@@ -1,7 +1,7 @@
 import styled, { ThemeProvider } from 'styled-components';
 import { theme } from '../themes';
 import { Develop } from '../components/svgs';
-import { HomeButton, SocialIcons } from '../components';
+import { BigTitle, HomeButton, SocialIcons, LogoComponent } from '../components';
 import Particle from '../components/Particle';
 
 const Container = styled.div`
@@ -77,6 +77,7 @@ const Skills = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container>
+        <LogoComponent themeType="light" />
         <HomeButton />
         <SocialIcons theme="light" />
         <Particle theme="light" />
@@ -106,6 +107,7 @@ const Skills = () => {
             <p>Python, NodeJS, Django, MongoDB, MySQL, PostgresSQL, etc</p>
           </Description>
         </Box>
+        <BigTitle text="Skills" right="30%" top="80%" />
       </Container>
     </ThemeProvider>
   );

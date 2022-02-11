@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { Project } from '../types';
 import { Github } from './svgs';
@@ -6,7 +7,7 @@ type Props = {
   project: Project;
 };
 
-const Box = styled.div`
+const Box = styled(motion.div)`
   width: 25rem;
   height: 40vh;
   background-color: ${(props) => props.theme.white};
@@ -19,7 +20,7 @@ const Box = styled.div`
   justify-content: space-between;
   border: 1px solid ${(props) => props.theme.white};
   transition: all 0.2s ease;
-
+  z-index: 3;
   &:hover {
     background-color: ${(props) => props.theme.black};
     color: ${(props) => props.theme.white};
@@ -80,11 +81,25 @@ const Git = styled.a`
   }
 `;
 
+// framer config
+const animation = {
+  hidden: {
+    scale: 0,
+  },
+  show: {
+    scale: 1,
+    transition: {
+      type: 'spring',
+      duration: 0.5,
+    },
+  },
+};
+
 const Card = ({ project }: Props) => {
   const { name, url, topics, homepage, description = '' } = project;
 
   return (
-    <Box>
+    <Box variants={animation}>
       <Title>{name}</Title>
       <Description>{description}</Description>
       <Tags>
