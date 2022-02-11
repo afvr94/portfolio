@@ -1,8 +1,10 @@
 import { useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { useLocation } from 'react-router-dom';
 import { Pause, Play } from './svgs';
+import { PageUrl } from '../constants';
 
-const Container = styled.div`
+const Container = styled.div<{ shouldBeWhite: boolean }>`
   display: flex;
   cursor: pointer;
   position: fixed;
@@ -12,6 +14,7 @@ const Container = styled.div`
   z-index: 10;
   & > *:nth-child(1) {
     margin-right: 0.5rem;
+    fill: ${({ shouldBeWhite, theme }) => (shouldBeWhite ? theme.white : theme.black)};
   }
   & > *:nth-child(2) {
     animation-delay: 0.2s;
@@ -45,10 +48,9 @@ const play = keyframes`
     }
 `;
 
-const Line = styled.span<{ isMusicPlaying: boolean }>`
-  background-color: ${({ theme }) => theme.black};
-  border: 1px solid ${({ theme }) => theme.black};
-
+const Line = styled.span<{ isMusicPlaying: boolean; shouldBeWhite: boolean }>`
+  background-color: ${({ theme, shouldBeWhite }) => (shouldBeWhite ? theme.white : theme.black)};
+  border: 1px solid ${({ theme, shouldBeWhite }) => (shouldBeWhite ? theme.white : theme.black)};
   animation: ${play} 1s ease infinite;
   animation-play-state: ${({ isMusicPlaying }) => (isMusicPlaying ? 'running' : 'paused')};
   height: 1rem;
@@ -59,6 +61,10 @@ const Line = styled.span<{ isMusicPlaying: boolean }>`
 const SoundBar = () => {
   const ref = useRef<HTMLAudioElement>(null);
   const [isMusicPlaying, setIsMusicPLaying] = useState(false);
+
+  const { pathname } = useLocation();
+
+  const shouldBeWhite = [PageUrl.WORK, PageUrl.ABOUT].includes(pathname as PageUrl);
 
   const handleOnClick = () => {
     if (!isMusicPlaying) {
@@ -71,17 +77,17 @@ const SoundBar = () => {
   };
 
   return (
-    <Container onClick={handleOnClick}>
+    <Container onClick={handleOnClick} shouldBeWhite={shouldBeWhite}>
       {isMusicPlaying ? (
         <Pause width={25} height={25} fill="fillCurrent" />
       ) : (
         <Play width={25} height={25} fill="fillCurrent" />
       )}
-      <Line isMusicPlaying={isMusicPlaying} />
-      <Line isMusicPlaying={isMusicPlaying} />
-      <Line isMusicPlaying={isMusicPlaying} />
-      <Line isMusicPlaying={isMusicPlaying} />
-      <Line isMusicPlaying={isMusicPlaying} />
+      <Line isMusicPlaying={isMusicPlaying} shouldBeWhite={shouldBeWhite} />
+      <Line isMusicPlaying={isMusicPlaying} shouldBeWhite={shouldBeWhite} />
+      <Line isMusicPlaying={isMusicPlaying} shouldBeWhite={shouldBeWhite} />
+      <Line isMusicPlaying={isMusicPlaying} shouldBeWhite={shouldBeWhite} />
+      <Line isMusicPlaying={isMusicPlaying} shouldBeWhite={shouldBeWhite} />
       <audio
         src="https://mp3.downloadyt.com/wp-content/uploads/2020/02/Bad%20Bunny%20-%20Corazon.mp3"
         ref={ref}

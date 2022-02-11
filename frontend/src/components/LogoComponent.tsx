@@ -1,13 +1,15 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 type Props = {
   themeType: Theme;
 };
 
-const Logo = styled.a<{ themeType: Theme }>`
+const Logo = styled.div<{ themeType: Theme }>`
   display: inline-block;
   color: ${(props) => (props.themeType === 'light' ? props.theme.black : props.theme.white)};
   font-family: 'Pacifico', cursive;
+  cursor: pointer;
   position: fixed;
   left: 2rem;
   top: 2rem;
@@ -20,8 +22,14 @@ const Logo = styled.a<{ themeType: Theme }>`
 `;
 
 const LogoComponent = ({ themeType }: Props) => {
+  const navigate = useNavigate();
+
+  const handleOnClick = () => {
+    navigate('/');
+  };
+
   return (
-    <Logo href="/" themeType={themeType}>
+    <Logo onClick={handleOnClick} themeType={themeType}>
       Abdiel Vega
     </Logo>
   );
