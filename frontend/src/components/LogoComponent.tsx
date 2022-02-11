@@ -14,6 +14,9 @@ const Logo = styled.a<{ themeType: Theme }>`
   font-size: 1.5rem;
   z-index: 3;
   text-decoration: none;
+  @media screen and (max-width: 640px) {
+    left: 1rem;
+  }
 `;
 
 const LogoComponent = ({ themeType }: Props) => {

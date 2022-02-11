@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import ProfilePic from '../assets/images/profile-img.png';
+import ProfilePic from '../assets/images/profile-pic.png';
 
 const Container = styled(motion.div)`
   position: absolute;
@@ -52,7 +52,7 @@ const Box = styled.div`
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translate(-50%, 1%);
+    transform: translate(-50%, -0.5%);
     width: 100%;
     height: auto;
   }

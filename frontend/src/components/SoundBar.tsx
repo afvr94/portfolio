@@ -1,27 +1,35 @@
 import { useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { Pause, Play } from './svgs';
 
 const Container = styled.div`
   display: flex;
   cursor: pointer;
   position: fixed;
+  align-items: center;
   left: 10.5rem;
   top: 2rem;
   z-index: 10;
   & > *:nth-child(1) {
-    animation-delay: 0.2s;
+    margin-right: 0.5rem;
   }
   & > *:nth-child(2) {
-    animation-delay: 0.3s;
+    animation-delay: 0.2s;
   }
   & > *:nth-child(3) {
-    animation-delay: 0.4s;
+    animation-delay: 0.3s;
   }
   & > *:nth-child(4) {
-    animation-delay: 0.5s;
+    animation-delay: 0.4s;
   }
   & > *:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+  & > *:nth-child(6) {
     animation-delay: 0.6s;
+  }
+  @media screen and (max-width: 640px) {
+    left: 9.5rem;
   }
 `;
 
@@ -64,6 +72,11 @@ const SoundBar = () => {
 
   return (
     <Container onClick={handleOnClick}>
+      {isMusicPlaying ? (
+        <Pause width={25} height={25} fill="fillCurrent" />
+      ) : (
+        <Play width={25} height={25} fill="fillCurrent" />
+      )}
       <Line isMusicPlaying={isMusicPlaying} />
       <Line isMusicPlaying={isMusicPlaying} />
       <Line isMusicPlaying={isMusicPlaying} />

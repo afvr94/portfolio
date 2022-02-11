@@ -23,6 +23,10 @@ const Icons = styled.div<{ themeType: Theme }>`
     background-color: ${(props) =>
       props.themeType === 'dark' ? props.theme.white : props.theme.black};
   }
+
+  @media screen and (max-width: 640px) {
+    left: 1rem;
+  }
 `;
 
 const Line = styled(motion.span)`
