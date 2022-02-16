@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
+import { motion } from 'framer-motion';
 import { theme } from '../themes';
-import { HomeButton, SocialIcons, Card } from '../components';
+import { HomeButton, SocialIcons, Card, BigTitle, LogoComponent } from '../components';
 import { getProjects } from '../api';
 import { Project } from '../types';
 
@@ -20,7 +21,7 @@ const LoadingText = styled.h2`
   align-items: center;
 `;
 
-const Box = styled.div`
+const Box = styled(motion.div)`
   position: relative;
   overflow: hidden;
   margin-top: calc(1rem + 8vw);
@@ -34,6 +35,18 @@ const Box = styled.div`
   align-items: center;
   color: ${(props) => props.theme.white};
 `;
+
+// framer config
+const animation = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5,
+      duration: 0.5,
+    },
+  },
+};
 
 enum State {
   'LOADING' = 0,
@@ -62,17 +75,19 @@ const Work = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container>
+        <LogoComponent themeType="dark" />
         <HomeButton />
         <SocialIcons theme="dark" />
         {isLoading ? (
           <LoadingText>Loading...</LoadingText>
         ) : (
-          <Box>
+          <Box variants={animation} initial="hidden" animate="show">
             {projects.map((project) => (
               <Card project={project} key={project.id} />
             ))}
           </Box>
         )}
+        <BigTitle text="Work" top="5%" right="20%" />
       </Container>
     </ThemeProvider>
   );

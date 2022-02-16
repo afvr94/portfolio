@@ -4,6 +4,7 @@ export const theme = {
   black: '#000000',
   white: '#FCF6F4',
   orange: '#e48826',
+  gray: '#999999',
   body: '#FCF6F4',
   text: '#000000',
   fontFamily: "'Source Sans Pro', sans-serif",

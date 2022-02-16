@@ -21,7 +21,7 @@ router.get('/projects', async (req: Request, res: Response) => {
   try {
     const headers = {
       Accept: 'application/vnd.github.mercy-preview+json',
-      Authorization: `token ${GITHUB_TOKEN}`,
+      // Authorization: `token ${GITHUB_TOKEN}`,
     };
     const { data }: AxiosResponse<GithubResponse[]> = await axios.get(
       `https://api.github.com/users/${GITHUB_USERNAME}/repos`,

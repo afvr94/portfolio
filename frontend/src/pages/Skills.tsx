@@ -1,7 +1,7 @@
 import styled, { ThemeProvider } from 'styled-components';
 import { theme } from '../themes';
 import { Develop } from '../components/svgs';
-import { HomeButton, SocialIcons } from '../components';
+import { BigTitle, HomeButton, SocialIcons, LogoComponent } from '../components';
 import Particle from '../components/Particle';
 
 const Container = styled.div`
@@ -13,6 +13,18 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  @media screen and (max-width: 640px) {
+    flex-direction: column;
+    overflow: auto;
+    justify-content: space-between;
+    .first-box {
+      margin-top: 5rem;
+    }
+    .second-box {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
 `;
 
 const Box = styled.div`
@@ -34,6 +46,13 @@ const Box = styled.div`
     color: ${(props) => props.theme.white};
     background-color: ${(props) => props.theme.orange};
     border: 2px solid ${(props) => props.theme.white};
+  }
+  @media screen and (max-width: 640px) {
+    align-items: center;
+    justify-self: center;
+    height: 100%;
+    width: 50%;
+    z-index: 10;
   }
 `;
 
@@ -77,10 +96,11 @@ const Skills = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container>
+        <LogoComponent themeType="light" />
         <HomeButton />
         <SocialIcons theme="light" />
         <Particle theme="light" />
-        <Box>
+        <Box className="first-box">
           <Title>
             <Develop width={40} height={40} /> Frontend Developer
           </Title>
@@ -93,7 +113,7 @@ const Skills = () => {
             <p>HTML, CSS, Javascript, React, Redux, TailwindCSS, etc</p>
           </Description>
         </Box>
-        <Box>
+        <Box className="second-box">
           <Title>
             <Develop width={40} height={40} /> Backend Developer
           </Title>
@@ -106,6 +126,7 @@ const Skills = () => {
             <p>Python, NodeJS, Django, MongoDB, MySQL, PostgresSQL, etc</p>
           </Description>
         </Box>
+        <BigTitle text="Skills" right="30%" top="80%" />
       </Container>
     </ThemeProvider>
   );

@@ -21,6 +21,10 @@ const Container = styled.button`
   &:hover {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
+  @media screen and (max-width: 640px) {
+    left: 90%;
+    top: 1.5rem;
+  }
 `;
 
 const HomeButton = () => {

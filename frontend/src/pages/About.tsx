@@ -1,6 +1,6 @@
 import styled, { keyframes, ThemeProvider } from 'styled-components';
 import { theme } from '../themes';
-import { HomeButton, SocialIcons } from '../components';
+import { BigTitle, HomeButton, SocialIcons, LogoComponent } from '../components';
 import Particle from '../components/Particle';
 import astronaut from '../assets/images/astronaut.png';
 
@@ -21,7 +21,7 @@ const float = keyframes`
 const Spaceman = styled.div`
   position: absolute;
   top: 20%;
-  right: 5%;
+  right: 10%;
   width: 20vw;
   animation: ${float} 4s ease infinite;
   img {
@@ -45,7 +45,7 @@ const Box = styled.div`
   backdrop-filter: blur(4px);
   position: absolute;
   left: calc(5rem + 5vw);
-  top: 10rem;
+  top: 12rem;
   overflow: auto;
   p {
     position: relative;
@@ -61,6 +61,7 @@ const About = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container>
+        <LogoComponent themeType="dark" />
         <HomeButton />
         <SocialIcons theme="dark" />
         <Particle theme="dark" />
@@ -83,6 +84,7 @@ const About = () => {
             learn new topics in engineering.
           </p>
         </Box>
+        <BigTitle text="About" left="5%" top="8%" />
       </Container>
     </ThemeProvider>
   );
