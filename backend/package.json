@@ -10,6 +10,7 @@
     "format:check": "prettier --list-different .",
     "lint": "eslint --fix \"./**/*.{js,ts}\"",
     "lint:check": "eslint \"./**/*.{js,ts}\"",
+    "build": "tsc",
     "tsc": "tsc",
     "postinstall": "tsc",
     "start": "node build/src/app.js"
