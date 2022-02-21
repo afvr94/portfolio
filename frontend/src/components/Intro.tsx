@@ -69,7 +69,7 @@ const Text = styled.div`
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   & > *:last-child {
     color: ${(props) => `rgba(${props.theme.bodyRgba},0.6)`};
     font-size: calc(0.5rem + 1.5vw);

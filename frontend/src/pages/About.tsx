@@ -1,6 +1,6 @@
 import styled, { keyframes, ThemeProvider } from 'styled-components';
 import { theme } from '../themes';
-import { BigTitle, HomeButton, SocialIcons, LogoComponent } from '../components';
+import { BigTitle } from '../components';
 import Particle from '../components/Particle';
 import astronaut from '../assets/images/astronaut.png';
 
@@ -61,9 +61,6 @@ const About = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        <LogoComponent themeType="dark" />
-        <HomeButton />
-        <SocialIcons theme="dark" />
         <Particle theme="dark" />
         <Spaceman>
           <img src={astronaut} alt="Spaceman" />

@@ -1,5 +1,6 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { PageUrl } from '../constants';
 import { Home } from './svgs';
 
 const Container = styled.button`
@@ -28,12 +29,16 @@ const Container = styled.button`
 `;
 
 const HomeButton = () => {
+  const { pathname } = useLocation();
   const navigate = useNavigate();
 
   const handleOnClick = () => {
     navigate('/');
   };
 
+  if (pathname === PageUrl.MAIN) {
+    return null;
+  }
   return (
     <Container onClick={handleOnClick}>
       <Home width={30} height={30} />

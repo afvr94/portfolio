@@ -5,3 +5,4 @@ export { default as HomeButton } from './HomeButton';
 export { default as Card } from './Card';
 export { default as BigTitle } from './BigTitle';
 export { default as SoundBar } from './SoundBar';
+export { default as NavigationMenu } from './NavigationMenu';

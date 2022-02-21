@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { HomeButton, LogoComponent } from '../components';
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.body};
@@ -14,8 +13,6 @@ const Container = styled.div`
 const Hobbies = () => {
   return (
     <Container>
-      <LogoComponent themeType="light" />
-      <HomeButton />
       <h2>Work in progress... 👷🏾‍♂️</h2>
     </Container>
   );

@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { Email, Facebook, Github, LinkedIn } from './svgs';
 import { SocialUrl } from '../constants';
+import { useShouldBeLightTheme } from '../hooks';
 
-const Icons = styled.div<{ themeType: Theme }>`
+const Icons = styled.div<{ shouldBeLight: boolean }>`
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -17,11 +18,10 @@ const Icons = styled.div<{ themeType: Theme }>`
   }
   // Changing the anchor tags to the original color
   & > a {
-    color: ${(props) => (props.themeType === 'dark' ? props.theme.white : props.theme.black)};
+    color: ${(props) => (props.shouldBeLight ? props.theme.white : props.theme.black)};
   }
   & > span {
-    background-color: ${(props) =>
-      props.themeType === 'dark' ? props.theme.white : props.theme.black};
+    background-color: ${(props) => (props.shouldBeLight ? props.theme.white : props.theme.black)};
   }
 
   @media screen and (max-width: 640px) {
@@ -34,13 +34,11 @@ const Line = styled(motion.span)`
   height: 8rem;
 `;
 
-type Props = {
-  theme: Theme;
-};
+const SocialIcons = () => {
+  const shouldBeLight = useShouldBeLightTheme();
 
-const SocialIcons = ({ theme }: Props) => {
   return (
-    <Icons themeType={theme}>
+    <Icons shouldBeLight={shouldBeLight}>
       <motion.a
         href={SocialUrl.LINKED_IN}
         target="_blank"

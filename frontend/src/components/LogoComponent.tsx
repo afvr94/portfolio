@@ -1,13 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { useShouldBeLightTheme } from '../hooks';
 
-type Props = {
-  themeType: Theme;
-};
-
-const Logo = styled.div<{ themeType: Theme }>`
+const Logo = styled.div<{ shouldBeLight: boolean }>`
   display: inline-block;
-  color: ${(props) => (props.themeType === 'light' ? props.theme.black : props.theme.white)};
+  color: ${(props) => (props.shouldBeLight ? props.theme.white : props.theme.black)};
   font-family: 'Pacifico', cursive;
   cursor: pointer;
   position: fixed;
@@ -21,15 +18,16 @@ const Logo = styled.div<{ themeType: Theme }>`
   }
 `;
 
-const LogoComponent = ({ themeType }: Props) => {
+const LogoComponent = () => {
   const navigate = useNavigate();
+  const shouldBeLight = useShouldBeLightTheme();
 
   const handleOnClick = () => {
     navigate('/');
   };
 
   return (
-    <Logo onClick={handleOnClick} themeType={themeType}>
+    <Logo onClick={handleOnClick} shouldBeLight={shouldBeLight}>
       Abdiel Vega
     </Logo>
   );

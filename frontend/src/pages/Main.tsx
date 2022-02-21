@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import MediaQuery from 'react-responsive';
 import Intro from '../components/Intro';
-import { LogoComponent, SocialIcons } from '../components';
 import { PageUrl, SocialUrl } from '../constants';
 
 const MainContainer = styled.div`
@@ -70,7 +69,6 @@ const Main = () => {
   return (
     <MainContainer>
       <Container>
-        <LogoComponent themeType="light" />
         <TopBar>
           <Contact target="_blank" href={`mailto:${SocialUrl.EMAIL}`}>
             <motion.h2
@@ -148,7 +146,6 @@ const Main = () => {
             </motion.h2>
           </TopBarLink>
         </TopBar>
-        <SocialIcons theme="light" />
         <MediaQuery maxWidth={640}>
           <DarkDiv
             initial={{

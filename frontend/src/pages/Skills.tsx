@@ -1,7 +1,6 @@
 import styled, { ThemeProvider } from 'styled-components';
 import { theme } from '../themes';
 import { Develop } from '../components/svgs';
-import { BigTitle, HomeButton, SocialIcons, LogoComponent } from '../components';
 import Particle from '../components/Particle';
 
 const Container = styled.div`
@@ -41,6 +40,7 @@ const Box = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   line-height: 1.5;
+  transition: 0.5s ease-in-out;
   cursor: pointer;
   &:hover {
     color: ${(props) => props.theme.white};
@@ -66,7 +66,9 @@ const Title = styled.h2`
   }
 
   ${Box}:hover & {
+    transition: 0.5s ease-in-out;
     & > * {
+      transition: 0.5s ease-in-out;
       fill: ${(props) => props.theme.white};
     }
   }
@@ -76,6 +78,7 @@ const Description = styled.div`
   color: ${(props) => props.theme.black};
   font-size: calc(0.6em + 1vw);
   padding: 0.5rem 0;
+  transition: 0.5s ease-in-out;
   strong {
     margin-bottom: 1rem;
     text-transform: uppercase;
@@ -85,9 +88,11 @@ const Description = styled.div`
   }
   ${Box}:hover & {
     & > * {
+      transition: 0.5s ease-in-out;
       color: ${(props) => props.theme.white};
       fill: ${(props) => props.theme.white};
     }
+    transition: 0.5s ease-in-out;
     color: ${(props) => props.theme.white};
   }
 `;
@@ -96,9 +101,6 @@ const Skills = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        <LogoComponent themeType="light" />
-        <HomeButton />
-        <SocialIcons theme="light" />
         <Particle theme="light" />
         <Box className="first-box">
           <Title>
@@ -126,7 +128,6 @@ const Skills = () => {
             <p>Python, NodeJS, Django, MongoDB, MySQL, PostgresSQL, etc</p>
           </Description>
         </Box>
-        <BigTitle text="Skills" right="30%" top="80%" />
       </Container>
     </ThemeProvider>
   );

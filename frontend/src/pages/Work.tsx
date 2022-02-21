@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { motion } from 'framer-motion';
 import { theme } from '../themes';
-import { HomeButton, SocialIcons, Card, BigTitle, LogoComponent } from '../components';
+import { Card } from '../components';
 import { getProjects } from '../api';
 import { Project } from '../types';
 
@@ -75,9 +75,6 @@ const Work = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        <LogoComponent themeType="dark" />
-        <HomeButton />
-        <SocialIcons theme="dark" />
         {isLoading ? (
           <LoadingText>Loading...</LoadingText>
         ) : (
@@ -87,7 +84,6 @@ const Work = () => {
             ))}
           </Box>
         )}
-        <BigTitle text="Work" top="5%" right="20%" />
       </Container>
     </ThemeProvider>
   );

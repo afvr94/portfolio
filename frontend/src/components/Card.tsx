@@ -9,7 +9,7 @@ type Props = {
 
 const Box = styled(motion.div)`
   width: 25rem;
-  height: 40vh;
+  height: 35vh;
   background-color: ${(props) => props.theme.white};
   color: ${(props) => props.theme.black};
   padding: 1.5rem 2rem;
@@ -21,7 +21,9 @@ const Box = styled(motion.div)`
   border: 1px solid ${(props) => props.theme.white};
   transition: all 0.2s ease;
   z-index: 3;
+  min-height: 25rem;
   &:hover {
+    transition: all 0.5s ease-in-out;
     background-color: ${(props) => props.theme.black};
     color: ${(props) => props.theme.white};
     border: 1px solid ${(props) => props.theme.white};
@@ -58,26 +60,24 @@ const Footer = styled.footer`
   justify-content: space-between;
 `;
 
-const Link = styled.a`
+const Git = styled.a`
+  color: inherit;
   background-color: ${(props) => props.theme.black};
   color: ${(props) => props.theme.white};
   text-decoration: none;
+  text-decoration: none;
   padding: 0.5rem calc(2rem + 2vw);
   border-radius: 0 0 0 50px;
-  font-size: calc(1em + 0.5vw);
-  ${Box}:hover & {
-    background-color: ${(props) => props.theme.white};
-    color: ${(props) => props.theme.black};
-  }
-`;
-
-const Git = styled.a`
-  color: inherit;
-  text-decoration: none;
+  width: 100%;
   display: flex;
   align-items: center;
   ${Box}:hover & {
     fill: ${(props) => props.theme.white};
+    background-color: ${(props) => props.theme.white};
+    color: ${(props) => props.theme.black};
+  }
+  p {
+    margin-left: 1rem;
   }
 `;
 
@@ -96,7 +96,7 @@ const animation = {
 };
 
 const Card = ({ project }: Props) => {
-  const { name, url, topics, homepage, description = '' } = project;
+  const { name, url, topics, description = '' } = project;
 
   return (
     <Box variants={animation}>
@@ -108,13 +108,9 @@ const Card = ({ project }: Props) => {
         ))}
       </Tags>
       <Footer>
-        {homepage && (
-          <Link href={homepage} target="_black">
-            Visit
-          </Link>
-        )}
         <Git href={url} target="_black">
           <Github width={30} height={30} fill="currentColor" />
+          <p>Check it out at GitHub</p>
         </Git>
       </Footer>
     </Box>
